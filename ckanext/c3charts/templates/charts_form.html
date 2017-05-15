@@ -71,6 +71,34 @@
     <div id="wizard_chart_configuration" class="wizard-pane">
       <h2><span class="wizard-pane-index"></span>Chart Configuration</h2>
       <p>Chart Configuration.</p>
+         
+        {{ form.select('color_scheme', label=_('Color Pattern'), options=color_schemes,
+            selected=resource_view['color_scheme'], is_required=True) }}
+
+        {{ form.select('legend', label=_('Legend'), options=legend_options,
+            selected=resource_view['legend'], is_required=True) }}
+
+        {{ form.checkbox('rotated', id='rotated', value='True', label=_('Rotate axis'),
+                            checked=resource_view['rotated'] is defined) }}
+
+        {{ form.checkbox('data_labels', id='data_labels', value='True', label=_('Show data labels'),
+                            checked=resource_view['data_labels'] is defined) }}
+
+        {{ form.checkbox('x_grid', id='x_grid', value='True', label=_('Show grid on x axis'),
+                            checked=resource_view['x_grid'] is defined) }}
+
+        {{ form.checkbox('y_grid', id='y_grid', value='True', label=_('Show grid on y axis'),
+                            checked=resource_view['y_grid'] is defined) }}
+
+        {{ form.checkbox('aggregate', id='aggregate', value='True', label=_('Aggregate progress keys'),
+                            checked=resource_view['aggregate'] is defined) }}
+          
+        {{ form.checkbox('zoom', id='zoom', value='True', label=_('Zoom enabled'),
+                            checked=resource_view['zoom'] is defined) }}
+
+        {{ form.checkbox('subchart', id='subchart', value='True', label=_('Show subchart'),
+                            checked=resource_view['subchart'] is defined) }}   
+         
       <div id="chart_config" class="config-form">
         <div class="control-group group__x-axis">
           <label>X-Axis</label>
@@ -103,32 +131,7 @@
 
        
 
-        {{ form.select('color_scheme', label=_('Color Pattern'), options=color_schemes,
-            selected=resource_view['color_scheme'], is_required=True) }}
-
-        {{ form.select('legend', label=_('Legend'), options=legend_options,
-            selected=resource_view['legend'], is_required=True) }}
-
-        {{ form.checkbox('rotated', id='rotated', value='True', label=_('Rotate axis'),
-                            checked=resource_view['rotated'] is defined) }}
-
-        {{ form.checkbox('data_labels', id='data_labels', value='True', label=_('Show data labels'),
-                            checked=resource_view['data_labels'] is defined) }}
-
-        {{ form.checkbox('x_grid', id='x_grid', value='True', label=_('Show grid on x axis'),
-                            checked=resource_view['x_grid'] is defined) }}
-
-        {{ form.checkbox('y_grid', id='y_grid', value='True', label=_('Show grid on y axis'),
-                            checked=resource_view['y_grid'] is defined) }}
-
-        {{ form.checkbox('aggregate', id='aggregate', value='True', label=_('Aggregate progress keys'),
-                            checked=resource_view['aggregate'] is defined) }}
-          
-        {{ form.checkbox('zoom', id='zoom', value='True', label=_('Zoom enabled'),
-                            checked=resource_view['zoom'] is defined) }}
-
-        {{ form.checkbox('subchart', id='subchart', value='True', label=_('Show subchart'),
-                            checked=resource_view['subchart'] is defined) }}
+      
 
      
       

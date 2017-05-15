@@ -87,7 +87,11 @@ class ChartsPlugin(plugins.SingletonPlugin):
                                    'text': 'Pastel 2'},
                                   {'value': '#AA9988, #A88600, #779922, #6C7F3F, #887711, '
                                             '#555577, #665500, #665100, #4C493D, #2B2B2V',
-                                   'text': 'Contrast'}],
+                                   'text': 'Contrast'},
+                                  {'value': '#0083d7, #B80000, #995522, #556677, #118888, '
+                                            '#115588, #4C3D3D, #2B2B2B, #660000, #221100',                                    
+                                   'text': 'CDC'}
+                                 ],
                 'text_chart_number_actions': [{'value': 'substract',
                                                'text': 'Substract last two entries'},
                                               {'value': 'average',

@@ -23,12 +23,46 @@
        {{ form.select('chart_type', label=_('Chart Type'), options=chart_types,
             selected=resource_view['chart_type'], is_required=True) }}
       <!-- <button id="download_data" class="btn" type="button" onclick="this.blur();loadCSV();">Download Starten</button> -->
-      <button class="btn wizard-pane-next" type="button" onclick="wizardTabs.nextPane(this);" disabled>Next</button>
+      <button class="btn wizard-pane-next" type="button" onclick="wizardTabs.nextPane(this);">Next</button>
     </div>
        
     <div id="wizard_data_configuration" class="wizard-pane">
       <h2><span class="wizard-pane-index"></span> Data Configuration </h2>
       <p>Data Configuration</p>
+         
+        <div class="alert alert-info">
+            <p>Select the keys for the data that needs to be charted.</p>
+        </div>
+        <label class="control-label" id="key_fields_label">
+            <span title="This field is required" class="control-required">*</span> Data keys
+        </label>
+        <div class="c3charts-form-split-container" id="key_fields_container">
+            {% for item in fields %}
+                {{ form.checkbox('key_fields', id=['key_fields_', item.value]|join, label=item.value,
+                            value=item.value, checked=False, classes=['c3select']) }}
+            {% endfor %}
+        </div>
+        <div id="remap-key">
+            {{ form.select('remap_key', label=_('Remap'), options=remap_keys,
+            selected=resource_view['remap_key'], is_required=False) }}
+        </div>
+        {{ form.input('measure_unit_y', label=_('Append Unit'), value=resource_view['measure_unit_y']) }}
+
+        <div id="x-fields">
+            <div class="alert alert-info" id="x_fields_help">
+                <p>Select the keys for the progression (x-axis) of the data values.</p>
+            </div>
+            <label class="control-label" id="x_fields_label">
+                <span title="This field is required" class="control-required">*</span> Progress keys
+            </label>
+            <div class="c3charts-form-split-container" id="x_fields_container">
+                {% for item in fields %}
+                    {{ form.checkbox('x_fields', id=['x_fields_', item.value]|join, label=item.value,
+                            value=item.value, checked=False, classes=['c3select']) }}
+                {% endfor %}
+            </div>
+            {{ form.input('measure_unit_x', label=_('Append Unit'), value=resource_view['measure_unit_x']) }}
+        </div>
            
       <button id="parse_data" class="btn" type="button" onclick="this.blur();parseData();">Previous</button>
       <button class="btn wizard-pane-next" type="button" onclick="wizardTabs.nextPane(this);">Next</button>
@@ -97,39 +131,7 @@
                             checked=resource_view['subchart'] is defined) }}
 
      
-        <div class="alert alert-info">
-            <p>Select the keys for the data that needs to be charted.</p>
-        </div>
-        <label class="control-label" id="key_fields_label">
-            <span title="This field is required" class="control-required">*</span> Data keys
-        </label>
-        <div class="c3charts-form-split-container" id="key_fields_container">
-            {% for item in fields %}
-                {{ form.checkbox('key_fields', id=['key_fields_', item.value]|join, label=item.value,
-                            value=item.value, checked=False, classes=['c3select']) }}
-            {% endfor %}
-        </div>
-        <div id="remap-key">
-            {{ form.select('remap_key', label=_('Remap'), options=remap_keys,
-            selected=resource_view['remap_key'], is_required=False) }}
-        </div>
-        {{ form.input('measure_unit_y', label=_('Append Unit'), value=resource_view['measure_unit_y']) }}
-
-        <div id="x-fields">
-            <div class="alert alert-info" id="x_fields_help">
-                <p>Select the keys for the progression (x-axis) of the data values.</p>
-            </div>
-            <label class="control-label" id="x_fields_label">
-                <span title="This field is required" class="control-required">*</span> Progress keys
-            </label>
-            <div class="c3charts-form-split-container" id="x_fields_container">
-                {% for item in fields %}
-                    {{ form.checkbox('x_fields', id=['x_fields_', item.value]|join, label=item.value,
-                            value=item.value, checked=False, classes=['c3select']) }}
-                {% endfor %}
-            </div>
-            {{ form.input('measure_unit_x', label=_('Append Unit'), value=resource_view['measure_unit_x']) }}
-        </div>
+      
         <div id="table-chart">
             <div class="alert alert-info">
                 <p>Customize the look of the table chart.</p>

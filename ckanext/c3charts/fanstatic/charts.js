@@ -77,8 +77,8 @@ this.ckan.views.c3charts = this.ckan.views.c3charts || {};
            case 'Gauge':
                 chart_type = 'gauge';
                 break;
-           case 'Spline Chart':
-                chart_type = 'spline';
+           case 'Scatter Chart':
+                chart_type = 'scatter';
                 break;
         }
 

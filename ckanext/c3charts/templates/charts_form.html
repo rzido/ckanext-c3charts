@@ -99,6 +99,7 @@
         {{ form.checkbox('subchart', id='subchart', value='True', label=_('Show subchart'),
                             checked=resource_view['subchart'] is defined) }}   
          
+        
          
         
         <div id="table-chart">
@@ -138,6 +139,9 @@
       </div>
     </div>
   </div>
+     
+     
+<button id="parse_data" class="btn" type="button" onclick="this.blur();parseData();">Previous</button>     
 </div>
 
        

@@ -7,6 +7,9 @@
      class="c3controls">
      
      
+    {% block form %}
+     
+     
 <div class="wizard" id="chart_configurer">
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#wizard_chart_type"> Chart Type <i class="icon-ok" style="display: none;"></i></a></li>
@@ -16,31 +19,27 @@
   <div class="wizard-panes">
     <div id="wizard_chart_type" class="wizard-pane active">
       <h2><span class="wizard-pane-index"></span> Chart Type</h2>
-      <p>Laden sie die Ressource herunter.</p>
-      <div id="raw_data_container" class="control-group control-full">
-        <textarea id="field-chart_data" name="chart_data" rows="10"></textarea>
-        <div class="overlay">
-          <div>Loading...</div>
-        </div>
-      </div>
+      <p>Choose Chart Type.</p>
+       {{ form.select('chart_type', label=_('Chart Type'), options=chart_types,
+            selected=resource_view['chart_type'], is_required=True) }}
       <!-- <button id="download_data" class="btn" type="button" onclick="this.blur();loadCSV();">Download Starten</button> -->
       <button class="btn wizard-pane-next" type="button" onclick="wizardTabs.nextPane(this);" disabled>Next</button>
-
     </div>
+       
     <div id="wizard_data_configuration" class="wizard-pane">
       <h2><span class="wizard-pane-index"></span> Data Configuration </h2>
-      <p>Konfigurieren sie den Import der Daten zur Weiterverarbeitung.</p>
+      <p>Data Configuration</p>
            
       <button id="parse_data" class="btn" type="button" onclick="this.blur();parseData();">Previous</button>
       <button class="btn wizard-pane-next" type="button" onclick="wizardTabs.nextPane(this);">Next</button>
     </div>
        
     <div id="wizard_chart_configuration" class="wizard-pane">
-      <h2><span class="wizard-pane-index"></span> Konfiguration Diagramm</h2>
-      <p>Konfigurieren sie das Diagramm.</p>
+      <h2><span class="wizard-pane-index"></span>Chart Configuration</h2>
+      <p>Chart Configuration.</p>
       <div id="chart_config" class="config-form">
         <div class="control-group group__x-axis">
-          <label>X-Achse</label>
+          <label>X-Axis</label>
           <select id="x-axis-select" class="update">
           </select>
         </div>
@@ -68,10 +67,7 @@
   </div>
 </div>
 
-    {% block form %}
-
-        {{ form.select('chart_type', label=_('Chart Type'), options=chart_types,
-            selected=resource_view['chart_type'], is_required=True) }}
+       
 
         {{ form.select('color_scheme', label=_('Color Pattern'), options=color_schemes,
             selected=resource_view['color_scheme'], is_required=True) }}

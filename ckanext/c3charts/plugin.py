@@ -35,7 +35,8 @@ class ChartsPlugin(plugins.SingletonPlugin):
             'x_grid': [ignore_missing],
             'y_grid': [ignore_missing],
             'remap_key': [ignore_missing],
-            'aggregate': [ignore_missing]
+            'aggregate': [ignore_missing],
+            'zoom': [ignore_missing]
         }
 
         return {'name': 'Chart builder',

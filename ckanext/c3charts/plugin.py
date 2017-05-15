@@ -67,7 +67,10 @@ class ChartsPlugin(plugins.SingletonPlugin):
                                 {'value': 'Pie Chart'},
                                 {'value': 'Spline Chart'},
                                 {'value': 'Table Chart'},
-                                {'value': 'Simple Chart'}],
+                                {'value': 'Simple Chart'},
+                                {'value': 'Area Chart'},
+                                {'value': 'Gauge'},
+                                {'value': 'Scatter Chart'}],
                 'color_schemes': [{'value': '#B80000, #995522, #556677, #118888, #115588, '
                                             '#4C3D3D, #2B2B2B, #660000, #221100',
                                    'text': 'Saturated'},

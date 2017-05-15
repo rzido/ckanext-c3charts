@@ -71,6 +71,7 @@
       <h2><span class="wizard-pane-index"></span>Chart Configuration</h2>
       <p>Chart Configuration.</p>
          
+       <div class="c3charts-form-split-container">  
         {{ form.select('color_scheme', label=_('Color Pattern'), options=color_schemes,
             selected=resource_view['color_scheme'], is_required=True) }}
 
@@ -98,7 +99,7 @@
         {{ form.checkbox('subchart', id='subchart', value='True', label=_('Show subchart'),
                             checked=resource_view['subchart'] is defined) }}   
          
-        
+         </div>
          
         
         <div id="table-chart">

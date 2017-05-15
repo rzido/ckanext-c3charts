@@ -71,6 +71,15 @@ this.ckan.views.c3charts = this.ckan.views.c3charts || {};
                 chart_type = 'spline';
                 positionX = 'outer-center';
                 break;
+           case 'Area Chart':
+                chart_type = 'area';
+                break;
+           case 'Gauge':
+                chart_type = 'gauge';
+                break;
+           case 'Spline Chart':
+                chart_type = 'spline';
+                break;
         }
 
         if (!Array.isArray(key_fields)) {

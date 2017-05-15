@@ -110,34 +110,8 @@
             {{ form.select('text_chart_number_action', label=_('Number value'), options=text_chart_number_actions,
                 selected=resource_view['text_chart_number_action'], is_required=True) }}
         </div>   
-         
-      <div id="chart_config" class="config-form">
-        <div class="control-group group__x-axis">
-          <label>X-Axis</label>
-          <select id="x-axis-select" class="update">
-          </select>
-        </div>
-        <div class="control-group group__chart_type">
-          <label>Diagramm Typ</label>
-          <select id="chart-type" class="update">
-            <option value='line'>Liniendiagramm</option>
-            <option value='bar'>Balkendiagramm</option>
-          </select>
-        </div>
-        <div class="control-group">
-          <label>Zeilenauswahl</label>
-          <input class="span3" type="text" id="row_selection"/> 
-        </div>
-        <div class="control-group">
-          <label>Bezeichner X-Achse</label>
-          <input class="span3" type="text" id="x-axis-label"/> 
-        </div>
-        <div class="control-group">
-          <label>Bezeichner Y-Achse</label>
-          <input class="span3" type="text" id="y-axis-label"/> 
-        </div>
-      </div>
-
+        
+  
     <button id="parse_data" class="btn" type="button" onclick="this.blur();parseData();">Previous</button>          
     </div>
   </div>

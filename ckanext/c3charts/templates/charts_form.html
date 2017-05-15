@@ -71,13 +71,16 @@
       <h2><span class="wizard-pane-index"></span>Chart Configuration</h2>
       <p>Chart Configuration.</p>
          
-       <div class="c3charts-form-split-container">  
+     
         {{ form.select('color_scheme', label=_('Color Pattern'), options=color_schemes,
             selected=resource_view['color_scheme'], is_required=True) }}
 
         {{ form.select('legend', label=_('Legend'), options=legend_options,
             selected=resource_view['legend'], is_required=True) }}
 
+        <div class="c3charts-form-split-container">  
+          <label class="control-label">Other options</label>
+            
         {{ form.checkbox('rotated', id='rotated', value='True', label=_('Rotate axis'),
                             checked=resource_view['rotated'] is defined) }}
 

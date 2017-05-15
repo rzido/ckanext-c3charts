@@ -213,7 +213,10 @@ this.ckan.views.c3charts = this.ckan.views.c3charts || {};
                     show: !! resourceView.y_grid
                 }
             },
-            legend: legend
+            legend: legend,
+            zoom: {enabled: resourceView.zoom  },
+            subchart: {show: resourceView.subchart}
+            
         }
     }
 

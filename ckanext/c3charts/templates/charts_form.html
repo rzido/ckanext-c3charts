@@ -31,11 +31,14 @@
 
         {{ form.checkbox('aggregate', id='aggregate', value='True', label=_('Aggregate progress keys'),
                             checked=resource_view['aggregate'] is defined) }}
-     
-     
+          
         {{ form.checkbox('zoom', id='zoom', value='True', label=_('Zoom enabled'),
                             checked=resource_view['zoom'] is defined) }}
 
+        {{ form.checkbox('subchart', id='subchart', value='True', label=_('Show subchart'),
+                            checked=resource_view['subchart'] is defined) }}
+
+     
         <div class="alert alert-info">
             <p>Select the keys for the data that needs to be charted.</p>
         </div>

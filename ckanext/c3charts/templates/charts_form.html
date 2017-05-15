@@ -61,6 +61,8 @@
                 {% endfor %}
             </div>
             {{ form.input('measure_unit_x', label=_('Append Unit'), value=resource_view['measure_unit_x']) }}
+            {{ form.checkbox('aggregate', id='aggregate', value='True', label=_('Aggregate progress keys'),
+                            checked=resource_view['aggregate'] is defined) }}
         </div>
            
       <button class="btn wizard-pane-previous" type="button" onclick="this.blur();wizardTabs.select('wizard_chart_type');">Previous</button>
@@ -79,7 +81,6 @@
             selected=resource_view['legend'], is_required=True) }}
 
         <div class="c3charts-form-split-container">  
-          <label class="control-label">Other options</label>
             
         {{ form.checkbox('rotated', id='rotated', value='True', label=_('Rotate axis'),
                             checked=resource_view['rotated'] is defined) }}
@@ -93,9 +94,7 @@
         {{ form.checkbox('y_grid', id='y_grid', value='True', label=_('Show grid on y axis'),
                             checked=resource_view['y_grid'] is defined) }}
 
-        {{ form.checkbox('aggregate', id='aggregate', value='True', label=_('Aggregate progress keys'),
-                            checked=resource_view['aggregate'] is defined) }}
-          
+                 
         {{ form.checkbox('zoom', id='zoom', value='True', label=_('Zoom enabled'),
                             checked=resource_view['zoom'] is defined) }}
 

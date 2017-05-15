@@ -153,6 +153,26 @@
 
 {% block scripts %}
   <script type="text/javascript" src="/lib/wizard-tabs.js" defer="defer"></script>
+  <script>       
+       
+      var updateWizardUI = function() {
+   
+      }
+    var showLoadingOverlay = function(show) {
+      if (show) {
+        $("#wizard_chart_type .overlay").show();
+      } else {
+        $("#wizard_chart_type .overlay").hide();
+      }
+    } 
+       
+      window.onload = function() {
+          wizardTabs.initTabs();
+          $.each($("#chart_configurer .wizard-pane-index"), function(index, value) { $(value).text(index + 1); });
+          showLoadingOverlay(false);
+          updateWizardUI();
+        }
+   </script>
 {% endblock %}
      
      

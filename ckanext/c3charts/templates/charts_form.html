@@ -59,7 +59,7 @@
             </label>
             <div class="c3charts-form-split-container" id="x_fields_container">
                  
-          {{ form.select('group', label=_('Group (Axis 1)'), options=graph_fields, selected=data.group, error=errors.group) }}                
+          {{ form.select('group', label=_('Group (Axis 1)'), options=fields, selected=data.group, error=errors.group) }}                
                  
                 {% for item in fields %}
                     {{ form.checkbox('x_fields', id=['x_fields_', item.value]|join, label=item.value,

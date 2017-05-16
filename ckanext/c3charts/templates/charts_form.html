@@ -36,6 +36,9 @@
             <span title="This field is required" class="control-required">*</span> Data keys
         </label>
         <div class="c3charts-form-split-container" id="key_fields_container">
+             
+            {{ form.select('series', label=_('Series (Axis 2)'), options=fields, selected=data.series, error=errors.series) }}                 
+             
             {% for item in fields %}
                 {{ form.checkbox('key_fields', id=['key_fields_', item.value]|join, label=item.value,
                             value=item.value, checked=False, classes=['c3select']) }}
@@ -56,7 +59,7 @@
             </label>
             <div class="c3charts-form-split-container" id="x_fields_container">
                  
-          {{ form.select('series', label=_('Series (Axis 2)'), options=fields, selected=data.series, error=errors.series) }}                 
+            {{ form.select('series', label=_('Series (Axis 1)'), options=fields, selected=data.series, error=errors.series) }}                 
                  
                 {% for item in fields %}
                     {{ form.checkbox('x_fields', id=['x_fields_', item.value]|join, label=item.value,

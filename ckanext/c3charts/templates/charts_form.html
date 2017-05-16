@@ -36,7 +36,7 @@
         </label>
         <div class="c3charts-form-split-container" id="key_fields_container">
              
-            {{ form.select('series', label=_('Series (Axis 2)'), options=fields, selected=data.series, error=errors.series) }}                 
+            {{ form.select('series', label=_('Series (Axis 2)'), options=fields, resource_view['series'], is_required=True)) }}                 
              
             {% for item in fields %}
                 {{ form.checkbox('key_fields', id=['key_fields_', item.value]|join, label=item.value,
@@ -58,7 +58,7 @@
             </label>
             <div class="c3charts-form-split-container" id="x_fields_container">
                  
-          {{ form.select('group', label=_('Group (Axis 1)'), options=fields, selected=data.group, error=errors.group) }}                
+          {{ form.select('group', label=_('Group (Axis 1)'), options=fields, resource_view['group'], is_required=True)) }}                
                  
                 {% for item in fields %}
                     {{ form.checkbox('x_fields', id=['x_fields_', item.value]|join, label=item.value,

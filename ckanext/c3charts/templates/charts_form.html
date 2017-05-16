@@ -6,6 +6,23 @@
      id="c3controls"
      class="c3controls">
      
+     {% set fields = h.resource_view_get_fields(resource) %}
+{% set templateFilterInputs = selectAndInput('filter_fields', 'filter_values', selectOptions=fields) %}
+{% set filters = resource_view['filters'] %}
+
+<div
+  data-module = "resource-view-filters-form"
+  data-module-resource-id = "{{ resource['id'] }}"
+  data-module-template-filter-inputs = "{{ h.remove_linebreaks(templateFilterInputs) }}"
+  data-module-filters-selector = ".resource-view-filters"
+  data-module-add-filter-selector = ".resource-view-add-filter"
+  data-module-remove-filter-selector = ".resource-view-remove-filter"
+  >
+  {{
+      filtersInputs('filters', 'filter_fields', 'filter_values',
+          label=_('Filters'), options=fields, filters=filters, classes=["control-filters"])
+  }}
+</div>
      
     {% block form %}
      
